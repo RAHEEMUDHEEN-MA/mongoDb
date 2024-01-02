@@ -7,4 +7,4 @@ const Delete=async(req,res)=>{
     res.json("User Deleted")
 }
 
-module.exports=Deletes
+module.exports=Delete
