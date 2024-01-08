@@ -29,10 +29,10 @@ const student = require('./studentSchema')
 const addStudent =async(req,res)=>{
     const{name,email,username,password}=req.body;
 
-    const existingSignup = await student.findOne({ email});
+    const existingEmail = await student.findOne({ email});
 
-    if (existingSignup){
-        return res.status(409).json({ message: "email already exists"});
+    if (existingEmail){
+        return res.json({ message: "email already used" });
     }
   
     const salt=await bcrypt.genSalt(10)
