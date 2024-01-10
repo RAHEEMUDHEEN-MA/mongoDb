@@ -6,9 +6,9 @@ const jwt = require("jsonwebtoken");
 const StudentSignUp = async (req, res) => {
   const { name, email, username, password } = req.body;
 
-  const eEmail = await student.findOne({ email });
+  const aeEmail = await student.findOne({ email });
 
-  if (eEmail) {
+  if (aeEmail) {
     return res.json({ message: "email already exist" });
   }
 
@@ -23,7 +23,7 @@ const StudentSignUp = async (req, res) => {
   });
   res.json({
     Id: signupDetails._id,
-    Name: signupDetails.name,
+    Email: signupDetails.email,
     Username: signupDetails.username,
     Password: signupDetails.password,
     Token: tokenGenarate(signupDetails._id),

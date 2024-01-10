@@ -3,6 +3,7 @@ const creduser = require("./CredUserSchema");
 // new user
 const adduser = async (req, res) => {
   const { name, email, age, password } = req.body;
+  
   const Userdetails =await creduser.create({ name, email, age, password });
   res.json(Userdetails);
   // res.send("add")

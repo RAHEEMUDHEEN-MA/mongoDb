@@ -8,9 +8,9 @@ const get1Item = require("../Controller/Testworks/GetSingleData")
 const Delete = require("../Controller/Testworks/Delete")
 const Update = require("../Controller/Testworks/Update")
 const newUser = require("../Controller/hash/hashedPassword")
-const addStudent = require("../Controller/Credential/signUp/signUp")
-const StudentSignUp = require("../Controller/Credential/signUp/SignUp2")
-const StudentLogin = require("../Controller/Credential/signUp/login2")
+const addStudent = require("../Controller/Credential/signUp")
+const StudentSignUp = require("../Controller/Credential/SignUp2")
+const StudentLogin = require("../Controller/Credential/login2")
 const protect = require("../middleware/Token")
 
 const middleware=[protect]
@@ -32,7 +32,7 @@ router.route('/hashuser').post(newUser)
 router.route('/studentSignup').post(addStudent)
 
 router.route('/student/signup').post(StudentSignUp)
-router.route('/student/login').get(StudentLogin)
+router.route('/student/login').post(StudentLogin)
 
 router.route('/student/verify').get(middleware,StudentSignUp)
 
